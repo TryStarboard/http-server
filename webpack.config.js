@@ -4,12 +4,12 @@
 
 const join = require('path').join;
 const webpack = require('webpack');
-const configModule = require('config');
-const env = process.env.NODE_ENV || 'development';
-const isProd = env === 'production';
+const config = require('config');
 
-const config = {
-  entry: './source/client/index.js',
+const NODE_ENV = process.env.NODE_ENV || 'development';
+
+const conf = {
+  entry: './client/index.js',
 
   output: {
     filename: 'bundle.js',
@@ -20,8 +20,8 @@ const config = {
 
   resolve: {
     alias: {
-      img: join(__dirname, 'source/client/img'),
-      svg: join(__dirname, 'source/client/svg'),
+      img: join(__dirname, 'client/img'),
+      svg: join(__dirname, 'client/svg'),
     }
   },
 
@@ -46,14 +46,14 @@ const config = {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(env),
-      'MIXPANEL_TOKEN': JSON.stringify(configModule.get('mixpanel.token')),
+      'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
+      'MIXPANEL_TOKEN': JSON.stringify(config.get('mixpanel.token')),
     })
   ]
 };
 
-if (isProd) {
-  config.plugins.push(
+if (NODE_ENV === 'production') {
+  conf.plugins.push(
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         pure_getters: true,
@@ -66,4 +66,4 @@ if (isProd) {
   );
 }
 
-module.exports = config;
+module.exports = conf;
