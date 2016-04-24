@@ -1,5 +1,6 @@
 'use strict';
 
+const {join}                  = require('path');
 const config                  = require('config');
 const koa                     = require('koa');
 const koaStatic               = require('koa-static');
@@ -19,14 +20,14 @@ module.exports = function createKoaServer() {
 
   app.keys = config.get('cookie.keys');
 
-  app.use(koaStatic(config.get('koa.publicDir')));
-  app.use(koaStatic(config.get('koa.staticDir')));
+  app.use(koaStatic(join(__dirname, '../../public')));
+  app.use(koaStatic(join(__dirname, '../../static')));
 
-  app.use(views(config.get('koa.templateDir'), {
+  app.use(views(join(__dirname, '../../template'), {
     extension: 'jade',
   }));
 
-  if (config.get('isDev')) {
+  if (process.env.NODE_ENV !== 'production') {
     app.use(koaLogger());
   }
 
@@ -41,7 +42,7 @@ module.exports = function createKoaServer() {
       }, 'request');
     } catch (err) {
       this.status = 500;
-      if (config.get('isDev')) {
+      if (process.env.NODE_ENV !== 'production') {
         this.body = err.stack;
       }
       log.error({
@@ -49,7 +50,7 @@ module.exports = function createKoaServer() {
         res: this.response,
         responseTime: Date.now() - t1,
         err,
-      }, 'request-error');
+      }, 'request error');
     }
   });
 
