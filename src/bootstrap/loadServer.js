@@ -12,14 +12,14 @@ const server = http.createServer(koaApp.callback());
 createWebsocketServer(server);
 
 server.listen(10000, '0.0.0.0', () => {
-  log.info('Server listening on 0.0.0.0:10000');
+  log.info('server start');
 });
 
 ['SIGTERM', 'SIGINT'].forEach(function (sig) {
   process.once(sig, function () {
-    log.info(`receive ${sig}`);
+    log.info({signal: sig}, 'receive signal');
     server.close(function () {
-      log.info(`server closed on ${sig}`);
+      log.info({signal: sig}, 'server closed');
       process.exit(0);
     });
   });

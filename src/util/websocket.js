@@ -11,9 +11,15 @@ const subscribeRedis        = require('../../../shared-backend/pubsub').subscrib
 const unsubscribeRedis      = require('../../../shared-backend/pubsub').unsubscribe;
 const {getReposWithIds}     = require('../../../shared-backend/model/Repos');
 const getAllTags            = require('../../../shared-backend/model/Tags').getAll;
-// const {UPDATE_SOME_REPOS, REMOVE_REPOS, UPDATE_TAGS, UPDATE_PROGRESS, SYNC_REPOS} = require('../../source/shared/action-types');
-const {UPDATE_SOME_REPOS, REMOVE_REPOS, UPDATE_TAGS, UPDATE_PROGRESS, SYNC_REPOS} = {};
 const {enqueueSyncStarsJob} = require('./JobQueue');
+
+const {
+  UPDATE_SOME_REPOS,
+  REMOVE_REPOS,
+  UPDATE_TAGS,
+  UPDATE_PROGRESS,
+  SYNC_REPOS,
+} = require('../../shared/action-types');
 
 const COOKIE_KEYS = config.get('cookie.keys');
 
