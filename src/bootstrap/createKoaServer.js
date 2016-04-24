@@ -36,8 +36,8 @@ module.exports = function createKoaServer() {
     try {
       yield next;
       log.info({
-        req: this.request,
-        res: this.response,
+        req: this.req,
+        res: this.res,
         responseTime: Date.now() - t1,
       }, 'request');
     } catch (err) {
