@@ -1,9 +1,10 @@
-import Router                                   from 'koa-router';
-import {fromCallback}                           from 'bluebird';
-import log                                      from '../../../shared-backend/log';
-import {createLoginUrl, handleLoginCallback}    from '../../../shared-backend/github';
-import {fetchUserProfile, upsert as upsertUser} from '../../../shared-backend/model/User';
-import {enqueueSyncStarsJob}                    from '../../util/JobQueue';
+const Router                                = require('koa-router');
+const {fromCallback}                        = require('bluebird');
+const log                                   = require('../../../../shared-backend/log');
+const {createLoginUrl, handleLoginCallback} = require('../../../../shared-backend/github');
+const {fetchUserProfile}                    = require('../../../../shared-backend/model/User');
+const upsertUser                            = require('../../../../shared-backend/model/User').upsert;
+const {enqueueSyncStarsJob}                 = require('../../util/JobQueue');
 
 const unauthedRoute = new Router();
 
@@ -34,4 +35,4 @@ unauthedRoute.get('/github-back', ensureUnauthed, function *(next) {
   }
 });
 
-export {unauthedRoute as default};
+module.exports = unauthedRoute;

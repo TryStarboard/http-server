@@ -1,17 +1,19 @@
-import config                    from 'config';
-import koa                       from 'koa';
-import koaStatic                 from 'koa-static';
-import bodyParser                from 'koa-bodyparser';
-import koaLogger                 from 'koa-logger';
-import views                     from 'koa-views';
-import log                       from '../../shared-backend/log';
-import session                   from '../util/session';
-import {authInit, authSession}   from '../util/auth';
-import htmlRoute                 from '../routers/html';
-import unauthedRoute             from '../routers/html/unauthed';
-import apiRoute                  from '../routers/api';
+'use strict';
 
-export default function createKoaServer() {
+const config                  = require('config');
+const koa                     = require('koa');
+const koaStatic               = require('koa-static');
+const bodyParser              = require('koa-bodyparser');
+const koaLogger               = require('koa-logger');
+const views                   = require('koa-views');
+const log                     = require('../../../shared-backend/log');
+const session                 = require('../util/session');
+const {authInit, authSession} = require('../util/auth');
+const apiRoute                = require('../routers/api');
+const htmlRoute               = require('../routers/html');
+const unauthedRoute           = require('../routers/html/unauthed');
+
+module.exports = function createKoaServer() {
 
   const app = koa();
 
@@ -60,4 +62,4 @@ export default function createKoaServer() {
   app.use(unauthedRoute.routes());
 
   return app;
-}
+};

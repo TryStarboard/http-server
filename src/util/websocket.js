@@ -1,24 +1,19 @@
-import socketio                     from 'socket.io';
-import Cookies                      from 'cookies';
-import co                           from 'co';
-import {curry} from 'ramda';
-import {props} from 'bluebird';
-import config                       from 'config';
-import log                          from '../../shared-backend/log';
-import {client as redisClient} from '../../shared-backend/redis';
-import {
-  subClient,
-  subscribe as subscribeRedis,
-  unsubscribe as unsubscribeRedis} from '../../shared-backend/pubsub';
-import {getReposWithIds} from '../../shared-backend/model/Repos';
-import {getAll as getAllTags} from '../../shared-backend/model/Tags';
-import {
-  UPDATE_SOME_REPOS,
-  REMOVE_REPOS,
-  UPDATE_TAGS,
-  UPDATE_PROGRESS,
-  SYNC_REPOS} from '../../shared/action-types';
-import {enqueueSyncStarsJob} from './JobQueue';
+const socketio              = require('socket.io');
+const Cookies               = require('cookies');
+const co                    = require('co');
+const {curry}               = require('ramda');
+const {props}               = require('bluebird');
+const config                = require('config');
+const log                   = require('../../../shared-backend/log');
+const redisClient           = require('../../../shared-backend/redis').client;
+const {subClient}           = require('../../../shared-backend/pubsub');
+const subscribeRedis        = require('../../../shared-backend/pubsub').subscribe;
+const unsubscribeRedis      = require('../../../shared-backend/pubsub').unsubscribe;
+const {getReposWithIds}     = require('../../../shared-backend/model/Repos');
+const getAllTags            = require('../../../shared-backend/model/Tags').getAll;
+// const {UPDATE_SOME_REPOS, REMOVE_REPOS, UPDATE_TAGS, UPDATE_PROGRESS, SYNC_REPOS} = require('../../source/shared/action-types');
+const {UPDATE_SOME_REPOS, REMOVE_REPOS, UPDATE_TAGS, UPDATE_PROGRESS, SYNC_REPOS} = {};
+const {enqueueSyncStarsJob} = require('./JobQueue');
 
 const COOKIE_KEYS = config.get('cookie.keys');
 
@@ -92,8 +87,12 @@ function handleConnection(socket) {
   });
 }
 
-export function createWebsocketServer(server) {
+function createWebsocketServer(server) {
   const io = socketio(server, {serveClient: false});
   io.use(authenticate);
   io.on('connection', handleConnection);
 }
+
+module.exports = {
+  createWebsocketServer,
+};

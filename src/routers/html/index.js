@@ -1,4 +1,4 @@
-import Router from 'koa-router';
+const Router = require('koa-router');
 
 const router = new Router();
 
@@ -29,4 +29,4 @@ router.get('/user-profile', function *() {
   yield this.render('-inner');
 });
 
-export default router.routes();
+module.exports = router.routes();

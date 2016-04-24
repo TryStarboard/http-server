@@ -1,9 +1,9 @@
 /*eslint no-process-exit:0*/
 
-import http from 'http';
-import createKoaServer from './createKoaServer';
-import log from '../../shared-backend/log';
-import {createWebsocketServer} from '../util/websocket';
+const http = require('http');
+const log = require('../../../shared-backend/log');
+const {createWebsocketServer} = require('../util/websocket');
+const createKoaServer = require('./createKoaServer');
 
 const koaApp = createKoaServer();
 

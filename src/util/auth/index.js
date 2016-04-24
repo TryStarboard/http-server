@@ -1,6 +1,8 @@
-import passport from 'koa-passport';
-import {wrap} from 'co';
-import db from '../../../shared-backend/db';
+'use strict';
+
+const passport = require('koa-passport');
+const {wrap} = require('co');
+const db = require('../../../../shared-backend/db');
 
 passport.serializeUser(function (user, done) {
   done(null, user.id);
@@ -23,7 +25,7 @@ passport.deserializeUser(wrap(function *(id, done) {
 const authInit = passport.initialize();
 const authSession = passport.session();
 
-export {
+module.exports = {
   authInit,
   authSession,
   passport,

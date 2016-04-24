@@ -1,4 +1,6 @@
-import Router from 'koa-router';
+'use strict';
+
+const Router = require('koa-router');
 
 function *ensureUnauthed(next) {
   if (this.req.isAuthenticated()) {
@@ -14,4 +16,4 @@ unauthedRoute.get('/', ensureUnauthed, function *() {
   this.body = {hello: 'world'};
 });
 
-export {unauthedRoute as default};
+module.exports = unauthedRoute;

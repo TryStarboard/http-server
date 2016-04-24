@@ -1,10 +1,9 @@
 {
   "name": "github-starboard",
+  "private": true,
   "version": "31.0.0",
-  "description": "",
   "author": "Daiwei Lu <daiweilu123@gmail.com> (http://daiwei.lu)",
   "license": "MIT",
-  "main": "public/server.js",
   "engines": {
     "node": "5.10.0",
     "npm": "3.8.3"
@@ -30,20 +29,15 @@
     "koa-static": "2.0.0",
     "koa-views": "4.1.0",
     "kue": "0.10.5",
-    "le_node": "1.2.0",
     "lodash": "4.8.2",
-    "maxcon": "2.4.0",
     "octonode": "0.7.5",
-    "parse-link-header": "0.4.1",
     "passport-github": "1.1.0",
     "pg": "4.5.2",
     "ramda": "0.19.1",
     "raven": "^0.10.0",
-    "request-promise": "2.0.1",
     "routility": "^0.1.1",
     "rx": "4.1.0",
-    "socket.io": "1.4.5",
-    "source-map-support": "0.4.0"
+    "socket.io": "1.4.5"
   },
   "devDependencies": {
     "axios": "0.9.1",
@@ -94,15 +88,13 @@
     "test": "",
     "check": "npm run lint && npm test",
     "build:server": "webpack --colors --config webpack.config.server.js",
-    "build:delayed-job": "webpack --colors --config webpack.config.delayed-job.js",
     "build:client:js": "webpack --colors --config webpack.config.browser.js",
     "build:client:css": "node-sass --output-style expanded -o public source/client/style/index.scss",
     "build": "npm run build:server && npm run build:delayed-job && npm run build:client:js && npm run build:client:css",
     "watch:build:server": "npm run build:server -- -w",
-    "watch:build:delayed-job": "npm run build:delayed-job -- -w",
     "watch:build:client:js": "npm run build:client:js -- -w",
     "watch:build:client:css": "npm run build:client:css -- -w",
     "watch:build": "npm run watch:build:server & npm run watch:build:delayed-job & npm run watch:build:client:js & npm run watch:build:client:css",
-    "dev": "node script/dev.js"
+    "start": "node --harmony_destructuring --harmony_default_parameters src/index.js"
   }
 }

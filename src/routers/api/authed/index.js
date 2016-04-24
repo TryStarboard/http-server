@@ -1,9 +1,13 @@
-import Router                                    from 'koa-router';
-import {getAll as getAllRepos} from '../../../../shared-backend/model/Repos';
-import {getAll as getAllTags, addTag, deleteTag} from '../../../../shared-backend/model/Tags';
-import {addRepoTag, deleteRepoTag} from '../../../../shared-backend/model/RepoTags';
-import {findById as findUserById, deleteUser} from '../../../../shared-backend/model/User';
-import {UniqueConstraintError} from '../../../../shared-backend/model/Errors';
+'use strict';
+
+const Router                      = require('koa-router');
+const getAllRepos                 = require('../../../../../shared-backend/model/Repos').getAll;
+const {addTag, deleteTag}         = require('../../../../../shared-backend/model/Tags');
+const getAllTags                  = require('../../../../../shared-backend/model/Tags').getAll;
+const {addRepoTag, deleteRepoTag} = require('../../../../../shared-backend/model/RepoTags');
+const {deleteUser}                = require('../../../../../shared-backend/model/User');
+const findUserById                = require('../../../../../shared-backend/model/User').findById;
+const {UniqueConstraintError}     = require('../../../../../shared-backend/model/Errors');
 
 function *ensureAuthed(next) {
   if (this.req.isAuthenticated()) {
@@ -61,4 +65,4 @@ authedRoute.delete('/account', ensureAuthed, function *() {
   this.body = yield deleteUser(this.req.user.id);
 });
 
-export {authedRoute as default};
+module.exports = authedRoute;
