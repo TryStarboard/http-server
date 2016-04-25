@@ -95,6 +95,6 @@
     "watch:build:client:js": "npm run build:client:js -- -w",
     "watch:build:client:css": "npm run build:client:css -- -w",
     "watch:build": "npm run watch:build:server & npm run watch:build:delayed-job & npm run watch:build:client:js & npm run watch:build:client:css",
-    "start": "node --harmony_destructuring --harmony_default_parameters src/index.js"
+    "start": "nodemon -w src -w config -w shared --exec 'node --harmony_destructuring --harmony_default_parameters src/index.js'"
   }
 }

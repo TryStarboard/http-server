@@ -3,6 +3,9 @@
 const pkg = require('../package.json');
 
 module.exports = {
+  assets: {
+    baseUrl: process.env.ASSETS_BASE_URL,
+  },
   cookie: {
     keys: [
       process.env.COOKIE_KEY1,
