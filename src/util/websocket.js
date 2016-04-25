@@ -19,7 +19,7 @@ const {
   UPDATE_TAGS,
   UPDATE_PROGRESS,
   SYNC_REPOS,
-} = require('../../shared/action-types');
+} = require('../../../shared/action-types');
 
 const COOKIE_KEYS = config.get('cookie.keys');
 
