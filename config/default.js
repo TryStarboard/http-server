@@ -1,10 +1,12 @@
 'use strict';
 
 const pkg = require('../package.json');
+const assetsHash = require('./webpack-assets.json');
 
 module.exports = {
   assets: {
     baseUrl: process.env.ASSETS_BASE_URL,
+    hash: assetsHash,
   },
   cookie: {
     keys: [
