@@ -3,7 +3,7 @@
 const session        = require('koa-generic-session');
 const redisStore     = require('koa-redis');
 const config         = require('config');
-const {createClient} = require('../../../shared-backend/redis');
+const {createClient} = require('@starboard/shared-backend/redis');
 
 module.exports = session({
   store: redisStore({

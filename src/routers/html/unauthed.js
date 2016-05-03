@@ -1,9 +1,9 @@
 const Router                                = require('koa-router');
 const {fromCallback}                        = require('bluebird');
-const log                                   = require('../../../../shared-backend/log');
-const {createLoginUrl, handleLoginCallback} = require('../../../../shared-backend/github');
-const {fetchUserProfile}                    = require('../../../../shared-backend/model/User');
-const upsertUser                            = require('../../../../shared-backend/model/User').upsert;
+const log                                   = require('@starboard/shared-backend/log');
+const {createLoginUrl, handleLoginCallback} = require('@starboard/shared-backend/github');
+const {fetchUserProfile}                    = require('@starboard/shared-backend/model/User');
+const upsertUser                            = require('@starboard/shared-backend/model/User').upsert;
 const {enqueueSyncStarsJob}                 = require('../../util/JobQueue');
 
 const unauthedRoute = new Router();

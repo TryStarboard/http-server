@@ -1,13 +1,13 @@
 'use strict';
 
 const Router                      = require('koa-router');
-const getAllRepos                 = require('../../../../../shared-backend/model/Repos').getAll;
-const {addTag, deleteTag}         = require('../../../../../shared-backend/model/Tags');
-const getAllTags                  = require('../../../../../shared-backend/model/Tags').getAll;
-const {addRepoTag, deleteRepoTag} = require('../../../../../shared-backend/model/RepoTags');
-const {deleteUser}                = require('../../../../../shared-backend/model/User');
-const findUserById                = require('../../../../../shared-backend/model/User').findById;
-const {UniqueConstraintError}     = require('../../../../../shared-backend/model/Errors');
+const getAllRepos                 = require('@starboard/shared-backend/model/Repos').getAll;
+const {addTag, deleteTag}         = require('@starboard/shared-backend/model/Tags');
+const getAllTags                  = require('@starboard/shared-backend/model/Tags').getAll;
+const {addRepoTag, deleteRepoTag} = require('@starboard/shared-backend/model/RepoTags');
+const {deleteUser}                = require('@starboard/shared-backend/model/User');
+const findUserById                = require('@starboard/shared-backend/model/User').findById;
+const {UniqueConstraintError}     = require('@starboard/shared-backend/model/Errors');
 
 function *ensureAuthed(next) {
   if (this.req.isAuthenticated()) {

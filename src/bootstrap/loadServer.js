@@ -1,7 +1,7 @@
 /*eslint no-process-exit:0*/
 
 const http = require('http');
-const log = require('../../../shared-backend/log');
+const log = require('@starboard/shared-backend/log');
 const {createWebsocketServer} = require('../util/websocket');
 const createKoaServer = require('./createKoaServer');
 
