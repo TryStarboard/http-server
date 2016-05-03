@@ -9,6 +9,7 @@
     "npm": "3.8.3"
   },
   "dependencies": {
+    "@starboard/starboard-ui": "1.0.7",
     "axios": "0.9.1",
     "bluebird": "3.3.4",
     "bunyan": "1.8.0",
@@ -40,7 +41,6 @@
     "socket.io": "1.4.5"
   },
   "devDependencies": {
-    "@starboard/starboard-ui": "1.0.7",
     "axios": "0.9.1",
     "babel-cli": "6.7.5",
     "babel-core": "6.7.5",
