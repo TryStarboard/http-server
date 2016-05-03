@@ -40,7 +40,7 @@
     "socket.io": "1.4.5"
   },
   "devDependencies": {
-    "@starboard/starboard-ui": "1.0.5",
+    "@starboard/starboard-ui": "1.0.7",
     "axios": "0.9.1",
     "babel-cli": "6.7.5",
     "babel-core": "6.7.5",
