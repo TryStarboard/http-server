@@ -1,7 +1,7 @@
 'use strict';
 
 const pkg = require('../package.json');
-const assetsHash = require('./webpack-assets.json');
+const assetsHash = require('@starboard/starboard-ui/webpack-assets.json');
 
 module.exports = {
   assets: {
