@@ -46,8 +46,8 @@ module.exports = function createKoaServer() {
         this.body = err.stack;
       }
       log.error({
-        req: this.request,
-        res: this.response,
+        req: this.req,
+        res: this.res,
         responseTime: Date.now() - t1,
         err,
       }, 'request error');

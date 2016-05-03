@@ -1,13 +1,6 @@
-.DS_Store
-/_build-tmp
+/.tmp
+/config/webpack-assets.json
 /node_modules
-/public
-/build
+.DS_Store
 local*
 *.log
-/secret
-/deployment
-/typings/main*
-/typings/browser*
-/.idea
-.tmp
