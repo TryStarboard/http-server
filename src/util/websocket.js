@@ -5,12 +5,13 @@ const {curry}               = require('ramda');
 const {props}               = require('bluebird');
 const config                = require('config');
 const log                   = require('../../../shared-backend/log');
-const redisClient           = require('../../../shared-backend/redis').client;
+const {createClient}        = require('../../../shared-backend/redis');
 const {subClient}           = require('../../../shared-backend/pubsub');
 const subscribeRedis        = require('../../../shared-backend/pubsub').subscribe;
 const unsubscribeRedis      = require('../../../shared-backend/pubsub').unsubscribe;
 const {getReposWithIds}     = require('../../../shared-backend/model/Repos');
 const getAllTags            = require('../../../shared-backend/model/Tags').getAll;
+const redisClient           = require('./redis');
 const {enqueueSyncStarsJob} = require('./JobQueue');
 
 const {
@@ -40,7 +41,10 @@ function authenticate(socket, next) {
       next();
     }
 
-  }).catch(next);
+  }).catch((err) => {
+    log.error(err);
+    next(err);
+  });
 }
 
 const handleChannelMessage = curry((socket, user_id, channelName, channel, message) => {
