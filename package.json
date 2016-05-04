@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@starboard/shared-backend": "1.0.1",
-    "@starboard/starboard-ui": "1.0.7",
+    "@starboard/starboard-ui": "2.0.1",
     "axios": "0.9.1",
     "bluebird": "3.3.4",
     "bunyan": "1.8.0",

@@ -3,8 +3,8 @@
 const Router = require('koa-router');
 const config = require('config');
 
-const ASSETS_BASE_URL = config.get('assets.baseUrl');
-const JS_BUNDLE_PATH = config.get('assets.hash.main.js');
+const APP_JS_URL = config.get('assets.hash.app.js');
+const APP_CSS_URL = config.get('assets.hash.app.css');
 
 const router = new Router();
 
@@ -37,8 +37,8 @@ router.get('/user-profile', injectDefaultLocals, function *() {
 
 function *injectDefaultLocals(next) {
   this.state = {
-    ASSETS_BASE_URL,
-    JS_BUNDLE_PATH,
+    APP_JS_URL,
+    APP_CSS_URL,
   };
 
   yield next;
