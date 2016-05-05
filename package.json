@@ -9,8 +9,8 @@
     "npm": "3.8.3"
   },
   "dependencies": {
-    "@starboard/shared-backend": "1.0.1",
-    "@starboard/starboard-ui": "2.0.1",
+    "@starboard/shared-backend": "1.0.2",
+    "@starboard/starboard-ui": "2.0.3",
     "axios": "0.9.1",
     "bluebird": "3.3.4",
     "bunyan": "1.8.0",
@@ -89,11 +89,10 @@
     "watch:lint": "npm run lint -s && onchange 'source/**/*.js' 'config/*.js' 'migrations/*.js' '*.js' -v -- npm run lint -s",
     "test": "",
     "check": "npm run lint && npm test",
-    "copy:ui-hash": "cp ../starboard-ui/webpack-assets.json ./config/",
     "build:server": "webpack --colors --config webpack.config.server.js",
     "build": "npm run build:server && npm run build:delayed-job && npm run build:client:js && npm run build:client:css",
     "watch:build:server": "npm run build:server -- -w",
     "watch:build": "npm run watch:build:server & npm run watch:build:delayed-job & npm run watch:build:client:js & npm run watch:build:client:css",
-    "start": "npm run copy:ui-hash && nodemon -w src -w config -w shared --exec 'node --harmony_destructuring --harmony_default_parameters src/index.js'"
+    "start": "nodemon -w src -w config -w shared --exec 'node --harmony_destructuring --harmony_default_parameters src/index.js'"
   }
 }

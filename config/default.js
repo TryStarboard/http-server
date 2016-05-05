@@ -1,13 +1,10 @@
 'use strict';
 
 const pkg = require('../package.json');
-const assetsHash = require('@starboard/starboard-ui/webpack-assets.json');
+const assets = require('@starboard/starboard-ui/webpack-assets.json');
 
 module.exports = {
-  assets: {
-    baseUrl: process.env.ASSETS_BASE_URL,
-    hash: assetsHash,
-  },
+  assets,
   cookie: {
     keys: [
       process.env.COOKIE_KEY1,

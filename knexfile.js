@@ -3,7 +3,7 @@
 const config = require('config');
 
 module.exports = {
-  [config.get('currentEnv')]: {
+  [process.env.NODE_ENV || 'development']: {
     client: 'pg',
     connection: config.get('postgres'),
   },
