@@ -88,6 +88,7 @@
     "watch:lint": "npm run lint -s && onchange 'source/**/*.js' 'config/*.js' 'migrations/*.js' '*.js' -v -- npm run lint -s",
     "test": "",
     "check": "npm run lint && npm test",
-    "start": "nodemon -w src -w config -w shared --exec 'node --harmony_destructuring --harmony_default_parameters src/index.js'"
+    "start": "nodemon -w src -w config -w shared --exec 'node --harmony_destructuring --harmony_default_parameters src/index.js'",
+    "postversion": "git push && git push --tags"
   }
 }
