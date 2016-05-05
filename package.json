@@ -1,7 +1,7 @@
 {
   "name": "github-starboard",
   "private": true,
-  "version": "31.0.0",
+  "version": "31.0.1",
   "author": "Daiwei Lu <daiweilu123@gmail.com> (http://daiwei.lu)",
   "license": "MIT",
   "engines": {
@@ -84,15 +84,10 @@
     "webpack": "1.12.14"
   },
   "scripts": {
-    "clean": "rm -rf public build",
-    "lint": "eslint --rulesdir eslint-rules source config script *.js migrations",
+    "lint": "eslint source config script *.js migrations",
     "watch:lint": "npm run lint -s && onchange 'source/**/*.js' 'config/*.js' 'migrations/*.js' '*.js' -v -- npm run lint -s",
     "test": "",
     "check": "npm run lint && npm test",
-    "build:server": "webpack --colors --config webpack.config.server.js",
-    "build": "npm run build:server && npm run build:delayed-job && npm run build:client:js && npm run build:client:css",
-    "watch:build:server": "npm run build:server -- -w",
-    "watch:build": "npm run watch:build:server & npm run watch:build:delayed-job & npm run watch:build:client:js & npm run watch:build:client:css",
     "start": "nodemon -w src -w config -w shared --exec 'node --harmony_destructuring --harmony_default_parameters src/index.js'"
   }
 }

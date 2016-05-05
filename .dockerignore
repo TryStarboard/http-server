@@ -1,0 +1,10 @@
+.git
+config/local*
+local
+migrations
+node_modules
+.dockerignore
+**/.eslintrc.yml
+.gitignore
+circle.yml
+knexfile.js
