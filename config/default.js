@@ -17,8 +17,8 @@ module.exports = {
     password: process.env.REDIS_PASS,
   },
   postgres: {
-    host: 'postgres',
-    port: process.env.POSTGRES_PORT_5432_TCP_PORT,
+    host: process.env.POSTGRES_HOST,
+    port: process.env.POSTGRES_PORT,
     database: process.env.POSTGRES_DB,
     user: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASS,
@@ -27,9 +27,6 @@ module.exports = {
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: process.env.GITHUB_CALLBACK_URL,
-  },
-  mixpanel: {
-    token: null,
   },
   logging: {
     Logentries: {
