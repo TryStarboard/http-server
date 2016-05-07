@@ -24,4 +24,4 @@ deployment:
       - docker build -t daiweilu/starboard-http-server:$CIRCLE_TAG .
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push daiweilu/starboard-http-server:$CIRCLE_TAG
-      - kubectl patch deployment/starboard-http-server -p '{"spec":{"template":{"spec":{"containers":[{"name":"docker-hello-google","image":"daiweilu/starboard-http-server:'"$CIRCLE_TAG"'"}]}}}}'
+      - kubectl patch deployment/starboard-http-server -p '{"spec":{"template":{"spec":{"containers":[{"name":"starboard-http-server","image":"daiweilu/starboard-http-server:'"$CIRCLE_TAG"'"}]}}}}'
