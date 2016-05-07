@@ -1,6 +1,6 @@
 'use strict';
 
-const {join}                  = require('path');
+const {join, dirname}         = require('path');
 const config                  = require('config');
 const koa                     = require('koa');
 const koaStatic               = require('koa-static');
@@ -14,13 +14,15 @@ const apiRoute                = require('../routers/api');
 const htmlRoute               = require('../routers/html');
 const unauthedRoute           = require('../routers/html/unauthed');
 
+const UI_ASSETS_DIR = join(dirname(require.resolve('@starboard/starboard-ui')), 'public');
+
 module.exports = function createKoaServer() {
 
   const app = koa();
 
   app.keys = config.get('cookie.keys');
 
-  app.use(koaStatic(join(__dirname, '../../public')));
+  app.use(koaStatic(UI_ASSETS_DIR));
   app.use(koaStatic(join(__dirname, '../../static')));
 
   app.use(views(join(__dirname, '../../template'), {
