@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:5.11.1
+FROM nodesource/trusty:5.11.0
 
 RUN mkdir /app
 WORKDIR /app
