@@ -5,12 +5,12 @@
   "author": "Daiwei Lu <daiweilu123@gmail.com> (http://daiwei.lu)",
   "license": "MIT",
   "engines": {
-    "node": "5.10.0",
-    "npm": "3.8.3"
+    "node": "5.11.0",
+    "npm": "3.8.6"
   },
   "dependencies": {
     "@starboard/shared-backend": "1.0.2",
-    "@starboard/starboard-ui": "3.0.3",
+    "@starboard/starboard-ui": "3.1.0",
     "axios": "0.9.1",
     "bluebird": "3.3.4",
     "bunyan": "1.8.0",

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+browser-sync start \
+  --proxy="localhost:10000" \
+  --files="../starboard-ui/public/**/*" \
+  --ws \
+  --port 10001
