@@ -9,7 +9,7 @@
     "npm": "3.8.6"
   },
   "dependencies": {
-    "@starboard/shared-backend": "1.1.0",
+    "@starboard/shared-backend": "1.1.1",
     "@starboard/starboard-ui": "3.2.2",
     "axios": "0.9.1",
     "bluebird": "3.3.4",
