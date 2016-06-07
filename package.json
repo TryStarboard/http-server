@@ -50,7 +50,7 @@
     "mz": "2.4.0",
     "nodemon": "1.9.2",
     "onchange": "2.4.0",
-    "updeep": "0.15.0",
+    "updeep": "0.16.0",
     "validate.js": "0.10.0"
   },
   "scripts": {
