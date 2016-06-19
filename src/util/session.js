@@ -9,4 +9,7 @@ module.exports = session({
   store: redisStore({
     client: createClient(config.get('redis'))
   }),
+  cookie: {
+    maxage: 1000 * 60 * 60 * 24 * 30,
+  },
 });
