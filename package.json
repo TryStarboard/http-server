@@ -11,14 +11,9 @@
   "dependencies": {
     "@starboard/shared-backend": "2.1.2",
     "@starboard/starboard-ui": "5.0.0",
-    "axios": "0.12.0",
     "bluebird": "3.4.1",
-    "bunyan": "1.8.1",
     "co": "4.6.0",
     "config": "1.21.0",
-    "cookies": "0.6.1",
-    "event-stream": "3.3.2",
-    "ioredis": "2.0.1",
     "jade": "^1.11.0",
     "knex": "0.11.5",
     "koa": "1.2.0",
@@ -35,10 +30,7 @@
     "octonode": "0.7.6",
     "passport-github": "1.1.0",
     "ramda": "0.21.0",
-    "raven": "^0.11.0",
-    "routility": "^0.1.1",
-    "rx": "4.1.0",
-    "socket.io": "1.4.6"
+    "rx": "4.1.0"
   },
   "devDependencies": {
     "browser-sync": "2.13.0",
@@ -53,8 +45,8 @@
     "validate.js": "0.10.0"
   },
   "scripts": {
-    "lint": "eslint source config script *.js migrations",
-    "watch:lint": "npm run lint -s && onchange 'source/**/*.js' 'config/*.js' 'migrations/*.js' '*.js' -v -- npm run lint -s",
+    "lint": "eslint src config",
+    "watch:lint": "npm run lint -s; onchange 'src/**/*.js' 'config/*.js' -v -- npm run lint -s",
     "test": "",
     "check": "npm run lint && npm test",
     "start": "nodemon -w src -w config -w shared --exec 'node --harmony_destructuring --harmony_default_parameters src/index.js'",

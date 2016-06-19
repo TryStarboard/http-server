@@ -1,3 +1,5 @@
+'use strict';
+
 const Router                                = require('koa-router');
 const {fromCallback}                        = require('bluebird');
 const log                                   = require('@starboard/shared-backend/log');
