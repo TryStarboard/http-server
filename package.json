@@ -15,7 +15,6 @@
     "co": "4.6.0",
     "config": "1.21.0",
     "jade": "^1.11.0",
-    "knex": "0.11.5",
     "koa": "1.2.0",
     "koa-bodyparser": "2.2.0",
     "koa-generic-session": "1.11.0",
