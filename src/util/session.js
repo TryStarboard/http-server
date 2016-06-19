@@ -10,6 +10,6 @@ module.exports = session({
     client: createClient(config.get('redis'))
   }),
   cookie: {
-    maxage: 1000 * 60 * 60 * 24 * 30,
+    maxAge: 1000 * 60 * 60 * 24 * 30, // a month
   },
 });
