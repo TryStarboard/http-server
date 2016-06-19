@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@starboard/shared-backend": "2.1.2",
-    "@starboard/starboard-ui": "5.0.0",
+    "@starboard/starboard-ui": "6.0.0",
     "bluebird": "3.4.1",
     "co": "4.6.0",
     "config": "1.21.0",
