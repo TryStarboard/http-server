@@ -2,8 +2,8 @@
 
 const Router = require('koa-router');
 const {fromCallback} = require('bluebird');
-const upsertUser = require('@starboard/shared-backend/model/User').upsert;
 const log = require('../../util/log');
+const User = require('../../util/models').User;
 const {createLoginUrl, handleLoginCallback, fetchUserProfile} = require('../../util/github');
 const {enqueueSyncStarsJob} = require('../../util/JobQueue');
 
@@ -26,7 +26,7 @@ unauthedRoute.get('/github-back', ensureUnauthed, function *(next) {
   try {
     const access_token = yield handleLoginCallback(this.query);
     const user = yield fetchUserProfile(access_token);
-    const id = yield upsertUser(user, access_token);
+    const id = yield User.upsert(user, access_token);
     yield fromCallback((done) => this.req.login({id}, done));
     enqueueSyncStarsJob(id);
     this.redirect('/dashboard');
