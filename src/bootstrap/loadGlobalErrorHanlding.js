@@ -1,6 +1,6 @@
 'use strict';
 
-const log = require('@starboard/shared-backend/log');
+const log = require('../util/log');
 
 process.on('unhandledRejection', (reason, promise) => {
   // reason might be an instance of Error

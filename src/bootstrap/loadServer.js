@@ -3,7 +3,7 @@
 'use strict';
 
 const http = require('http');
-const log = require('@starboard/shared-backend/log');
+const log = require('../util/log');
 const createKoaServer = require('./createKoaServer');
 
 const koaApp = createKoaServer();

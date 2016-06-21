@@ -1,12 +1,12 @@
 'use strict';
 
-const Router                                = require('koa-router');
-const {fromCallback}                        = require('bluebird');
-const log                                   = require('@starboard/shared-backend/log');
+const Router = require('koa-router');
+const {fromCallback} = require('bluebird');
 const {createLoginUrl, handleLoginCallback} = require('@starboard/shared-backend/github');
-const {fetchUserProfile}                    = require('@starboard/shared-backend/model/User');
-const upsertUser                            = require('@starboard/shared-backend/model/User').upsert;
-const {enqueueSyncStarsJob}                 = require('../../util/JobQueue');
+const {fetchUserProfile} = require('@starboard/shared-backend/model/User');
+const upsertUser = require('@starboard/shared-backend/model/User').upsert;
+const log = require('../../util/log');
+const {enqueueSyncStarsJob} = require('../../util/JobQueue');
 
 const unauthedRoute = new Router();
 
