@@ -2,7 +2,8 @@
 
 const passport = require('koa-passport');
 const {wrap} = require('co');
-const db = require('@starboard/shared-backend/db');
+const log = require('../log');
+const db = require('../models').db;
 
 passport.serializeUser(function (user, done) {
   done(null, user.id);
@@ -18,6 +19,7 @@ passport.deserializeUser(wrap(function *(id, done) {
       done(null, user);
     }
   } catch (err) {
+    log.error(err);
     done(err);
   }
 }));
