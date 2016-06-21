@@ -2,6 +2,6 @@
 
 module.exports = {
   cookie: {
-    keys: ['keyboard cat', 'starboard'],
+    keys: ['keyboard-cat', 'starboard'],
   },
 };
