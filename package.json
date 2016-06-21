@@ -9,6 +9,10 @@
     "npm": "3.8.6"
   },
   "dependencies": {
+    "@starboard/github": "0.0.0",
+    "@starboard/log": "1.0.1",
+    "@starboard/models": "1.0.1",
+    "@starboard/redis": "1.0.1",
     "@starboard/shared-backend": "2.1.2",
     "@starboard/starboard-ui": "6.0.1",
     "bluebird": "3.4.1",
@@ -48,7 +52,8 @@
     "watch:lint": "npm run lint -s; onchange 'src/**/*.js' 'config/*.js' -v -- npm run lint -s",
     "test": "",
     "check": "npm run lint && npm test",
-    "start": "nodemon -w src -w config -w shared --exec 'node --harmony_destructuring --harmony_default_parameters src/index.js'",
+    "start": "node --harmony_destructuring --harmony_default_parameters src/index.js",
+    "dev": "nodemon -w src -w config -x 'npm start'",
     "postversion": "git push && git push --tags"
   }
 }
