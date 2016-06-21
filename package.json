@@ -1,7 +1,7 @@
 {
   "name": "github-starboard",
   "private": true,
-  "version": "35.0.4",
+  "version": "36.0.0",
   "author": "Daiwei Lu <daiweilu123@gmail.com> (http://daiwei.lu)",
   "license": "MIT",
   "engines": {
