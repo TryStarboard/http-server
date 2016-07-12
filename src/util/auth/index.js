@@ -3,7 +3,7 @@
 const passport = require('koa-passport');
 const {wrap} = require('co');
 const log = require('../log');
-const db = require('../models').db;
+const {User} = require('../models');
 
 passport.serializeUser(function (user, done) {
   done(null, user.id);
@@ -11,8 +11,7 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(wrap(function *(id, done) {
   try {
-    const [user] = yield db('users').select('id').where({id}).limit(1);
-
+    const user = yield User.findById(id);
     if (!user) {
       done(null, false);
     } else {

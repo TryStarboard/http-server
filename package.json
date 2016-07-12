@@ -11,7 +11,7 @@
   "dependencies": {
     "@starboard/github": "0.0.1",
     "@starboard/log": "1.0.2",
-    "@starboard/models": "2.0.1",
+    "@starboard/models": "3.0.1",
     "@starboard/redis": "1.1.0",
     "@starboard/starboard-ui": "7.0.3",
     "bluebird": "3.4.1",
@@ -51,8 +51,7 @@
     "watch:lint": "npm run lint -s; onchange 'src/**/*.js' 'config/*.js' -v -- npm run lint -s",
     "test": "",
     "check": "npm run lint && npm test",
-    "start": "node --harmony_destructuring --harmony_default_parameters src/index.js",
-    "dev": "nodemon -w src -w config -x 'npm start'",
+    "dev": "nodemon -w src -w config -x 'node --harmony_destructuring --harmony_default_parameters src/index.js'",
     "postversion": "git push && git push --tags"
   }
 }
