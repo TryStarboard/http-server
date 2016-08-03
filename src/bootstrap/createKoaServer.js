@@ -2,19 +2,19 @@
 
 'use strict';
 
-const {join, dirname}         = require('path');
-const config                  = require('config');
-const koa                     = require('koa');
-const koaStatic               = require('koa-static');
-const bodyParser              = require('koa-bodyparser');
-const koaLogger               = require('koa-logger');
-const views                   = require('koa-views');
-const log                     = require('../util/log');
-const session                 = require('../util/session');
+const {join, dirname} = require('path');
+const config = require('config');
+const koa = require('koa');
+const koaStatic = require('koa-static');
+const bodyParser = require('koa-bodyparser');
+const koaLogger = require('koa-logger');
+const views = require('koa-views');
+const log = require('../util/log');
+const session = require('../util/session');
 const {authInit, authSession} = require('../util/auth');
-const apiRoute                = require('../routers/api');
-const htmlRoute               = require('../routers/html');
-const unauthedRoute           = require('../routers/html/unauthed');
+const apiRoute = require('../routers/api');
+const htmlRoute = require('../routers/html');
+const unauthedRoute = require('../routers/html/unauthed');
 
 const UI_ASSETS_DIR = join(dirname(require.resolve('@starboard/starboard-ui')), 'public');
 
