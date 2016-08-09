@@ -31,7 +31,7 @@
     "lodash": "4.14.2",
     "octonode": "0.7.6",
     "passport-github": "1.1.0",
-    "ramda": "0.21.0",
+    "ramda": "0.22.1",
     "rx": "4.1.0"
   },
   "devDependencies": {
