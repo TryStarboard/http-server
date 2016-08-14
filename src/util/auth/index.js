@@ -1,33 +1,33 @@
-'use strict';
+'use strict'
 
-const passport = require('koa-passport');
-const {wrap} = require('co');
-const log = require('../log');
-const {User} = require('../models');
+const passport = require('koa-passport')
+const {wrap} = require('co')
+const log = require('../log')
+const {User} = require('../models')
 
 passport.serializeUser(function (user, done) {
-  done(null, user.id);
-});
+  done(null, user.id)
+})
 
 passport.deserializeUser(wrap(function *(id, done) {
   try {
-    const user = yield User.findById(id);
+    const user = yield User.findById(id)
     if (!user) {
-      done(null, false);
+      done(null, false)
     } else {
-      done(null, user);
+      done(null, user)
     }
   } catch (err) {
-    log.error(err);
-    done(err);
+    log.error(err)
+    done(err)
   }
-}));
+}))
 
-const authInit = passport.initialize();
-const authSession = passport.session();
+const authInit = passport.initialize()
+const authSession = passport.session()
 
 module.exports = {
   authInit,
   authSession,
-  passport,
-};
+  passport
+}

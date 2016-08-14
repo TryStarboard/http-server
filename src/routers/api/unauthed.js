@@ -1,19 +1,19 @@
-'use strict';
+'use strict'
 
-const Router = require('koa-router');
+const Router = require('koa-router')
 
 function *ensureUnauthed(next) {
   if (this.req.isAuthenticated()) {
-    this.res.status = 403;
+    this.res.status = 403
   } else {
-    yield next;
+    yield next
   }
 }
 
-const unauthedRoute = new Router();
+const unauthedRoute = new Router()
 
 unauthedRoute.get('/', ensureUnauthed, function *() {
-  this.body = {hello: 'world'};
-});
+  this.body = {hello: 'world'}
+})
 
-module.exports = unauthedRoute;
+module.exports = unauthedRoute

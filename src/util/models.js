@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const config = require('config');
-const create = require('@starboard/models').create;
+const config = require('config')
+const create = require('@starboard/models').create
 
-module.exports = create(config.get('postgres'));
+module.exports = create(config.get('postgres'))

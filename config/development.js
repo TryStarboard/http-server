@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
 module.exports = {
   cookie: {
-    keys: ['keyboard-cat', 'starboard'],
-  },
-};
+    keys: ['keyboard-cat', 'starboard']
+  }
+}

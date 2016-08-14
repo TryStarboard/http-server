@@ -1,45 +1,45 @@
-'use strict';
+'use strict'
 
-const Router = require('koa-router');
-const config = require('config');
+const Router = require('koa-router')
+const config = require('config')
 
-const assets = config.get('assets');
+const assets = config.get('assets')
 
-const router = new Router();
+const router = new Router()
 
 router.get('/', function *() {
   if (this.req.isAuthenticated()) {
-    this.redirect('/dashboard');
-    return;
+    this.redirect('/dashboard')
+    return
   }
 
-  yield this.render('index');
-});
+  yield this.render('index')
+})
 
 router.get('/dashboard', injectDefaultLocals, function *() {
   if (!this.req.isAuthenticated()) {
-    this.redirect('/');
-    return;
+    this.redirect('/')
+    return
   }
 
-  yield this.render('-inner');
-});
+  yield this.render('-inner')
+})
 
 router.get('/user-profile', injectDefaultLocals, function *() {
   if (!this.req.isAuthenticated()) {
-    this.redirect('/');
-    return;
+    this.redirect('/')
+    return
   }
 
-  yield this.render('-inner');
-});
+  yield this.render('-inner')
+})
 
 function *injectDefaultLocals(next) {
   this.state = {
-    assets,
-  };
+    assets
+  }
 
-  yield next;
+  yield next
 }
 
-module.exports = router.routes();
+module.exports = router.routes()

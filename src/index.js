@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
-require('./bootstrap/loadGlobalErrorHanlding');
-require('./bootstrap/loadServer');
+require('./bootstrap/loadGlobalErrorHanlding')
+require('./bootstrap/loadServer')
