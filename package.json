@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@starboard/github": "1.0.0",
-    "@starboard/log": "1.0.2",
+    "@starboard/log": "2.0.0",
     "@starboard/models": "4.0.0",
     "@starboard/redis": "1.1.0",
     "@starboard/starboard-ui": "7.0.5",
