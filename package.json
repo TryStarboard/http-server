@@ -37,7 +37,7 @@
     "browser-sync": "2.14.0",
     "commander": "^2.9.0",
     "eslint": "3.3.0",
-    "eslint-config-d6u": "1.2.0",
+    "eslint-config-d6u": "1.2.1",
     "mz": "2.4.0",
     "nodemon": "1.10.0",
     "onchange": "2.5.0",
