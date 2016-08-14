@@ -1,4 +1,4 @@
-FROM nodesource/trusty:5.11.0
+FROM nodesource/trusty:6.3.1
 
 RUN mkdir /app
 WORKDIR /app
@@ -12,4 +12,4 @@ ADD static /app/static
 
 EXPOSE 10000
 
-CMD ["node", "--harmony_destructuring", "--harmony_default_parameters", "src/index.js"]
+CMD ["node", "src/index.js"]
