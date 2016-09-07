@@ -34,7 +34,7 @@
     "rx": "4.1.0"
   },
   "devDependencies": {
-    "browser-sync": "2.14.3",
+    "browser-sync": "2.15.0",
     "commander": "^2.9.0",
     "eslint": "3.4.0",
     "eslint-config-d6u": "1.2.1",
