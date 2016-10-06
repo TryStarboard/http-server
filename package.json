@@ -39,7 +39,7 @@
     "eslint": "3.6.1",
     "eslint-config-d6u": "1.2.1",
     "mz": "2.4.0",
-    "nodemon": "1.10.2",
+    "nodemon": "1.11.0",
     "onchange": "3.0.2",
     "updeep": "0.16.1",
     "validate.js": "0.10.0"
