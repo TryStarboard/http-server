@@ -41,7 +41,7 @@
     "mz": "2.4.0",
     "nodemon": "1.10.2",
     "onchange": "3.0.2",
-    "updeep": "0.16.1",
+    "updeep": "1.0.0",
     "validate.js": "0.10.0"
   },
   "scripts": {
